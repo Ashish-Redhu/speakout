@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tweet Home Page</title>
-</head>
-<body>
-    <h1>Hey there! Tweets will be visible here....</h1>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% comment %} 1. {% endcomment %}
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% comment %} 2. {% endcomment %}
+{% block content %}
+    <h1>Welcome to home page of speakout</h1>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% comment %} 1. {% endcomment %}
+{% block title %}
+    Tweet Form
+{% endblock %}
+
+{% comment %} 2. {% endcomment %}
+{% block content %}
+    <h1>Welcome to speakout</h1>
+    <h2> 
+        {% if form.instance.pk %} 
+            Edit Tweet
+        {% else %}
+            Create a new tweet
+        {% endif %} 
+    </h2>
+    <form method="post" enctype="multipart/form-data" class="form"> 
+        {% csrf_token %}
+        {% comment %} # The below line means: Render the form fields as paragraphs {% endcomment %}
+        {{ form.as_p }} 
+        <button type="submit" class="btn btn-warming">
+            {% if form.instance.pk %} 
+                Update Tweet
+            {% else %}
+                Create Tweet
+            {% endif %} 
+        </button>
+    </form>
+    <a href="{% url 'tweet_list' %}">Back to Home Page</a>
+{% endblock %}

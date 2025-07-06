@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings  # Import settings for media and static files
 from django.conf.urls.static import static # Import static to serve media files during development
+from django.contrib.auth.urls import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tweet.urls')),  # Include the tweet app's URLs
+    path('accounts/', include('django.contrib.auth.urls')), # Include Django's built-in auth URLs
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

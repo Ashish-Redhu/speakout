@@ -130,3 +130,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+LOGIN_URL = 'accounts/login/'  # URL for login page
+# Login redirect UR L
+LOGIN_REDIRECT_URL = 'tweet_list'  # Redirect to tweet list after login
+LOGOUT_REDIRECT_URL = 'tweet_list'  # Redirect to tweet list after logout

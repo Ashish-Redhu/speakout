@@ -3,7 +3,7 @@ from .models import Tweet
 from .forms import TweetForm, UserRegistrationForm
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login
+from django.contrib.auth import login as auth_login
 
 # The upper mentioned contrib provides us various methods.
 
@@ -62,7 +62,7 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password1'])
             user.save()
-            login(request, user)
+            auth_login(request, user)
             return redirect('tweet_list')
     else:
         form = UserRegistrationForm()
